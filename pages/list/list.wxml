@@ -1,0 +1,26 @@
+<!--pages/list/list.wxml-->
+<import src='/pages/template/list-template.wxml'/>
+<view>
+  <!-- 轮播图 -->
+  <swiper catchtap="carouselToDetail" indicator-dots indicator-color="yellowgreen" indicator-active-color="pink">
+    <swiper-item>
+      <image data-id='1' src="/images/detail/carousel/01.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image data-id='0' src="/images/detail/carousel/02.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image data-id='2' src="/images/detail/carousel/03.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image data-id='3' src="/images/detail/carousel/04.jpg"></image>
+    </swiper-item>
+  </swiper>
+  <!-- 内容列表 -->
+  <block wx:for='{{listArr}}' wx:key='{{item.id}}'>
+    <view catchtap='toDetail' data-id='{{item.id}}'>
+      <template is="listTmp" data='{{...item}}'/>
+    </view>
+  </block>
+  
+</view>
